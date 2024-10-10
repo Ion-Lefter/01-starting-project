@@ -1,7 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
-import { NgFor } from '@angular/common';
-import { Task } from './task/task.model';
+import { NgFor, NgIf } from '@angular/common';
+import { type NewTaskData, Task } from './task/task.model';
+import { NewTaskComponent } from './new-task/new-task.component';
+
 
 
 @Component({
@@ -9,16 +11,46 @@ import { Task } from './task/task.model';
   standalone: true,
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css'],
-  imports: [TaskComponent, NgFor]
+  imports: [TaskComponent, NgFor, NewTaskComponent, NgIf]
 })
 export class TasksComponent {
 
   @Input({required: true}) userId!: string;
   @Input({required: true}) name!: string;
+  isAddingTask: boolean = false;
 
   tracByTaskId(index: number, task: Task): string{
     return task.id;
   }
+
+  get selectedUserTasks(){
+    return this.tasks.filter((task) => task.userId === this.userId);
+  }
+
+  onCompleteTask(id: string){
+    this.tasks = this.tasks.filter((task) => task.id !== id);
+  }
+
+  onStartAddTask(){
+    this.isAddingTask = true;
+  }
+
+  onCancelAddTask(){
+    this.isAddingTask=false;
+  }
+
+  onAddTask(taskData: NewTaskData){
+    this.tasks.unshift({
+      id: new Date().getTime().toString(),
+      userId: this.userId,
+      title: taskData.title,
+      summary: taskData.summary,
+      dueDate: taskData.dueDate
+    })
+    this.isAddingTask = false;
+  }
+
+
 
   tasks = [
     {
@@ -45,13 +77,5 @@ export class TasksComponent {
       dueDate: '2024-06-15',
     },
   ];
-
-  get selectedUserTasks(){
-    return this.tasks.filter((task) => task.userId === this.userId);
-  }
-
-  onCompleteTask(id: string){
-    this.tasks = this.tasks.filter((task) => task.id !== id);
-  }
 
 }
