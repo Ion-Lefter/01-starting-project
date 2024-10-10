@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
-import { User, UserComponent } from './user/user.component';
+import { UserComponent } from './user/user.component';
 import { DUMMY_USERS } from './dummy_users';
 import { TasksComponent } from './tasks/tasks.component';
 import { CommonModule } from '@angular/common';
+import { User } from './user/user.model';
 
 @Component({
   selector: 'app-root',

@@ -7,7 +7,7 @@
     </header>
     <ul>
         <li *ngFor = "let task of selectedUserTask; trackBy tracByTaskId" >
-            <app-task></app-task>
+            <app-task [task]="task"></app-task>
         </li>
 
     </ul>
