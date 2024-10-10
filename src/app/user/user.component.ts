@@ -8,7 +8,7 @@ import { Component, computed, EventEmitter, Input, Output } from '@angular/core'
   //   name: string;
   // }
 
-  interface User{
+  export interface User{
     id: string;
     avatar: string;
     name: string;
