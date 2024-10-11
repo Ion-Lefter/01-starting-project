@@ -4,6 +4,14 @@ import { type NewTaskData } from "./task/task.model";
 @Injectable({providedIn: 'root'})
 export class TasksService{
    private tasks = [
+    {
+      id: 't4',
+      userId: 'u1',
+      title: 'Master Angular',
+      summary:
+        'Learn all the basic and advanced features of Angular & how to apply them.',
+      dueDate: '2025-12-31',
+    },
         {
           id: 't1',
           userId: 'u1',
@@ -12,8 +20,9 @@ export class TasksService{
             'Learn all the basic and advanced features of Angular & how to apply them.',
           dueDate: '2025-12-31',
         },
+
         {
-          id: 't2',
+          id: 't3',
           userId: 'u3',
           title: 'Build first prototype',
           summary: 'Build a first prototype of the online shop website',
@@ -32,7 +41,7 @@ export class TasksService{
       constructor(){
         const tasks = localStorage.getItem('tasks')
         if(tasks){
-            this.tasks = JSON.parse(tasks);
+           this.tasks = JSON.parse(tasks);
         }
       }
 

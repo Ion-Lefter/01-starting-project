@@ -8,10 +8,10 @@ import { User } from './user/user.model';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
+  //standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [HeaderComponent, UserComponent, TasksComponent, CommonModule]
+  //imports: [HeaderComponent, UserComponent, TasksComponent, CommonModule]
 })
 export class AppComponent {
   title = '01-starting-project';
