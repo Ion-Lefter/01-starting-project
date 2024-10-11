@@ -4,10 +4,10 @@ import { CardComponent } from '../shared/card/card.component';
 
 @Component({
   selector: 'app-user',
-  standalone: true,
+  //standalone: true,
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css'],
-  imports: [CardComponent]
+  //imports: [CardComponent]
 })
 export class UserComponent {
 

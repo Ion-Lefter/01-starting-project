@@ -9,10 +9,8 @@ import { TasksService } from './tasks.service';
 
 @Component({
   selector: 'app-tasks',
-  standalone: true,
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css'],
-  imports: [TaskComponent, NgFor, NewTaskComponent, NgIf]
 })
 
 export class TasksComponent {
